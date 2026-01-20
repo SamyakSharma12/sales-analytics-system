@@ -1,1 +1,15 @@
+---
 
+## main.py
+
+```python
+from utils.file_handler import read_sales_data
+from utils.data_processor import clean_data, analyze_data, generate_report
+from utils.api_handler import fetch_product_info
+
+if __name__ == "__main__":
+    raw_records = read_sales_data("data/sales_data.txt")
+    cleaned_records = clean_data(raw_records)
+    enriched_records = fetch_product_info(cleaned_records)
+    analysis = analyze_data(enriched_records)
+    generate_report(analysis, "output/report.txt")
